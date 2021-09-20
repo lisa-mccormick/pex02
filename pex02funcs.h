@@ -1,6 +1,6 @@
 /** pex02funcs.h
  * =========================================================== 
- * Name: your name
+ * Name: C2C Lisa McCormick
  * Section: your section
  * Project: assignment information 
  * Purpose: high level description of purpose of the program
