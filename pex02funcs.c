@@ -38,8 +38,7 @@ int takeTurn(char* playerName, int playerScore) {
     int diceRoll;
     int totalScore = playerScore;
 
-    // DO WHILE LOOP
-    // Roll Die
+    
     printf("\n");
     printf("It's your turn, %s\n", playerName);
     do {
