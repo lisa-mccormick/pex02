@@ -8,6 +8,7 @@
  * =========================================================== */
 
 #include "pex02funcs.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -39,12 +40,14 @@ int takeTurn(char* playerName, int playerScore) {
 
     // DO WHILE LOOP
     // Roll Die
+    printf("\n");
+    printf("It's your turn, %s\n", playerName);
     do {
         diceRoll = rollDie();
         if (diceRoll == 1) {
             printf("You pigged out! Turn over.\n");
-            pointsEarned = 0;
-            return pointsEarned;
+            totalScore = totalScore - pointsEarned;
+            return totalScore;
         } else {
             pointsEarned = pointsEarned + diceRoll;
             totalScore = pointsEarned + playerScore;

@@ -19,8 +19,6 @@ int main() {
     char player2Name[20];
     int player1Score = 0;
     int player2Score = 0;
-    int currentPlayer = 1;
-    int chanceToPlay = 0;
     srand(time(0));
 
     printf("    Welcome to the Pigs! game.\n");
@@ -30,32 +28,15 @@ int main() {
     printf("PLayer two, what is your name: ");
     scanf("%s", player2Name);
 
-    // For each turn
-    // LOOP
-    while (player1Score <= POINTS_TO_WIN && player2Score <= POINTS_TO_WIN) {
+    do {
         displayGameState(player1Name, player1Score, player2Name, player2Score);
-        // IF PLAYER 1'S TURN
-        if (currentPlayer == 1) {
-            printf("\n");
-            printf("It's your turn, %s\n", player1Name);
-            player1Score = takeTurn(player1Name, player1Score);
-            currentPlayer = 2;
-        }
-        // ELSE
-        // Player 2's turn
-        else {
-            printf("\n");
-            printf("It's your turn, %s\n", player2Name);
-            player2Score = takeTurn(player2Name, player2Score);
-            currentPlayer = 1;
-            chanceToPlay = chanceToPlay + 1;
-        }
-    }
-    displayGameState(player1Name, player1Score, player2Name, player2Score);
+        player1Score = takeTurn(player1Name, player1Score);
+        displayGameState(player1Name, player1Score, player2Name, player2Score);
+        player2Score = takeTurn(player2Name, player2Score);
+    } while (player1Score <= POINTS_TO_WIN && player2Score <= POINTS_TO_WIN);
 
-    if (chanceToPlay >= 1) {
-        winningPlayer(player1Score, player2Score);
-    }
+    displayGameState(player1Name, player1Score, player2Name, player2Score);
+    winningPlayer(player1Score, player2Score);
     displayWinner(player1Name, player1Score, player2Name, player2Score);
 
     printf("Thanks for playing Pig!\n");
