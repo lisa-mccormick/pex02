@@ -13,6 +13,12 @@
     #include "pex02funcs.h"
 
 
+char* player1Name[20];
+int player1Score;
+char* player2Name[20];
+int player2Score;
+
+
 char getCharSafe(){
 
     return 0;
@@ -32,10 +38,10 @@ int takeTurn(char* playerName, int playerScore){
 
 void displayGameState(char* player1Name, int player1Score, char* player2Name, int player2Score){
 
+printf("    Score Player\n");
+printf("        %d %s\n", player1Score, player1Name);
+printf("        %d %s\n", player2Score, player2Name);
 
-
-
-    return 0;
 }
 
 int winningPlayer(int player1Score, int player2Score){
@@ -48,5 +54,5 @@ int winningPlayer(int player1Score, int player2Score){
 void displayWinner(char* player1Name, int player1Score, char* player2Name, int player2Score){
 
 
-    return 0;
+
 }

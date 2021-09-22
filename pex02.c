@@ -15,11 +15,28 @@
 
 int main(){
 
+  char player1Name[20];
+  char player2Name[20];
+  int player1Score = 0;
+  int player2Score = 0;
+
+  printf("    Welcome to the Pigs! game.\n");
+    printf("\n");
+  printf("Player one, what is your name: ");
+    scanf("%s", player1Name);
+  printf("PLayer two, what is your name: ");
+    scanf("%s", player2Name);
+
+  displayGameState(player1Name, player1Score, player2Name, player2Score);
+
+
+
+
+
+
+
+
   printf("thanks for playing Pig!\n");
-
-
-
-
 
 return 0;
 }
