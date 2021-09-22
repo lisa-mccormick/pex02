@@ -13,28 +13,51 @@
     #include "pex02funcs.h"
 
 
-char* player1Name[20];
-int player1Score;
-char* player2Name[20];
-int player2Score;
-char* playerName[20];
-int playerScore;
-char name;
-int value = 0;
+// char* player1Name[20];
+// int player1Score;
+// char* player2Name[20];
+// int player2Score;
+// char* playerName[20];
+// int playerScore;
+// char name;
+// int value = 0;
 
+char getCharSafe(){
+	char valued;
+	char scanfReturnd = 0;
 
-/*char getCharSafe(){
-    scanf(" %c", );
-    return " %c";
+    scanfReturnd = scanf(" %c", &valued);
+    fflush(stdin);
+
+    if (scanfReturnd !=1){
+        fprintf(stderr, "Bad char input - terminating\n");
+        exit(1);
+    }
+    return valued;
 }
-*/
-int rollDie(){
 
- value = rand() % 6 + 1;
- 
+int rollDie(){
+    int value = rand() % 6 + 1;
     return value;
 }
 
+int takeTurn(char* playerName, int playerScore){
+    
+    int pointsEarned = 0;
+
+    // DO WHILE LOOP
+        // Roll Die
+        int diceroll = rollDie();
+
+        // Adjust points (or pig out)
+
+        // Ask them if they want to roll again
+        // use getCharSafe
+        char c = getCharSafe();
+
+    // 
+    return playerScore + pointsEarned;
+}
 
 /*int takeTurn(char* playerName, int playerScore){
 

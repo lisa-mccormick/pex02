@@ -19,6 +19,7 @@ int main(){
   char player2Name[20];
   int player1Score = 0;
   int player2Score = 0;
+  int currentPlayer = 1;
   //char playerName[20];
   //int playerScore = 0;
 
@@ -29,14 +30,15 @@ int main(){
   printf("PLayer two, what is your name: ");
     scanf("%s", player2Name);
 
+  // For each turn
+  // LOOP
   displayGameState(player1Name, player1Score, player2Name, player2Score);
-
-  //takeTurn(playerName, playerScore);
-rollDie();
-
-
-
-  
+  // IF PLAYER 1'S TURN
+  player1Score = takeTurn(player1Name, player1Score);
+  currentPlayer = 2;
+  // ELSE
+  // Player 2's tu
+  player1Score = takeTurn(player1Name, player1Score);
 
 displayWinner(player1Name, player1Score, player2Name, player2Score);
 

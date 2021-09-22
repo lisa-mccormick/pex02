@@ -7,6 +7,8 @@
  * 
  * =========================================================== */
 
+#define POINTS_TO_WIN 100
+
 char getCharSafe();
 
 int rollDie();
