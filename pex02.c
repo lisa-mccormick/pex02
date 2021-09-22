@@ -20,8 +20,8 @@ int main(){
   int player1Score = 0;
   int player2Score = 0;
   int currentPlayer = 1;
-  //char playerName[20];
-  //int playerScore = 0;
+  srand(time(0));
+ 
 
   printf("    Welcome to the Pigs! game.\n");
     printf("\n");
@@ -32,14 +32,22 @@ int main(){
 
   // For each turn
   // LOOP
-  displayGameState(player1Name, player1Score, player2Name, player2Score);
+  while (player1Score < POINTS_TO_WIN || player2Score < POINTS_TO_WIN){
+    displayGameState(player1Name, player1Score, player2Name, player2Score);
   // IF PLAYER 1'S TURN
-  player1Score = takeTurn(player1Name, player1Score);
-  currentPlayer = 2;
+    if (currentPlayer == 1){
+    player1Score = takeTurn(player1Name, player1Score);
+    currentPlayer = 2;
+    }
   // ELSE
-  // Player 2's tu
-  player1Score = takeTurn(player1Name, player1Score);
+  // Player 2's turn
+    else{
+    player2Score = takeTurn(player2Name, player2Score);
+    currentPlayer = 1;
+    }
+  }
 
+winningPlayer(player1Score, player2Score);
 displayWinner(player1Name, player1Score, player2Name, player2Score);
 
 printf("Thanks for playing Pig!\n");

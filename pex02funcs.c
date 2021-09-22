@@ -13,14 +13,7 @@
     #include "pex02funcs.h"
 
 
-// char* player1Name[20];
-// int player1Score;
-// char* player2Name[20];
-// int player2Score;
-// char* playerName[20];
-// int playerScore;
-// char name;
-// int value = 0;
+
 
 char getCharSafe(){
 	char valued;
@@ -37,64 +30,49 @@ char getCharSafe(){
 }
 
 int rollDie(){
+    
     int value = rand() % 6 + 1;
     return value;
 }
 
 int takeTurn(char* playerName, int playerScore){
     
-    int pointsEarned = 0;
+    printf("It's your turn, %s\n", playerName);
 
+    int pointsEarned = 0;
+    int diceRoll = rollDie();
+    int turnScore = diceRoll + pointsEarned;
     // DO WHILE LOOP
         // Roll Die
-        int diceroll = rollDie();
-
+        do {
+         pointsEarned = pointsEarned + diceRoll;   
+        } while (pointsEarned <= POINTS_TO_WIN);
+        
         // Adjust points (or pig out)
-
+        if (diceRoll == 1){
+            printf("You pigged out! Turn over.");
+        }
+        else{
+            playerScore = turnScore + playerScore;
+        printf("You rolled a %d and have a turn score of %d, bringing your total score to %d.\n", diceRoll, turnScore, playerScore);
+        }
+        
         // Ask them if they want to roll again
+        printf("Roll Again? ");
         // use getCharSafe
         char c = getCharSafe();
-
-    // 
-    return playerScore + pointsEarned;
+        if (c == 'Y'){
+            return playerScore + pointsEarned;
+        }
+        if (c == 'y'){
+            return playerScore + pointsEarned;
+        }
+        else {
+            return playerScore;
+        }
+        return playerScore;
 }
 
-/*int takeTurn(char* playerName, int playerScore){
-
-if(player1Score == 0){
-    playerName = *player1Name;
-printf("It's your turn, %s\n", playerName);
-}
-else {
-    playerName = *player2Name;
-printf("It's your turn, %s\n", playerName);    
-}
-    name = playerName;
-    return name;
-
-playerScore = playerScore + value;
- player1Score = playerScore;
- printf("You rolled a %d and have a turn score of %d, bringing your total score to %d.\n", value, playerScore, player1Score);
-
- printf("Roll Again?");
- scanf(" %c");
-
-if ( %c = "Y"){
-
-}
-else if ( %c = "y"){
-
-}
-else{
-    return turn score + game score
-}
-
-if (value = 1){
-    printf("You pigged out! Turn over.");
-}
-}
-
-*/
 
 void displayGameState(char* player1Name, int player1Score, char* player2Name, int player2Score){
 
@@ -106,10 +84,10 @@ printf("\n");
 
 int winningPlayer(int player1Score, int player2Score){
 
-    if (player1Score >= 100){
+    if (player1Score >= POINTS_TO_WIN){
         return 1;
     }
-    else if (player2Score >= 100){
+    else if (player2Score >= POINTS_TO_WIN){
         return 2;
     }
     else if (player1Score == player2Score){
@@ -121,14 +99,15 @@ int winningPlayer(int player1Score, int player2Score){
 }
 
 void displayWinner(char* player1Name, int player1Score, char* player2Name, int player2Score){
-
-if (player1Score >= 100){
-printf("%s, you won!", player1Name);
+    
+    int playerwin = winningPlayer(player1Score, player2Score);
+if (playerwin == 1){
+printf("%s, you won!\n", player1Name);
 }
-else if (player2Score >= 100){
-printf("%s, you won!", player2Name);
+else if (playerwin == 2){
+printf("%s, you won!\n", player2Name);
 }
-else {
+else{
     printf("You tied. There are no winners here.\n");
 }
 }
