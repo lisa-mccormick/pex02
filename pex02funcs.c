@@ -1,20 +1,52 @@
 /** pex02funcs.c
  * =========================================================== 
- * Name: your name
- * Section: your section
- * Project: assignment information 
- * Purpose: high level description of purpose of the program
- *          could be multiple lines
+ * Name: C2C Lisa McCormick
+ * Section: T6/7
+ * Project: PEX 02 - Pig!
+ * Purpose: Write an application that implements the two-player dice game.
+ *          
  * =========================================================== */
 
-char getCharSafe();
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <time.h>
+    #include "pex02funcs.h"
 
-int rollDie();
 
-int takeTurn(char* playerName, int playerScore);
+char getCharSafe(){
 
-void displayGameState(char* player1Name, int player1Score, char* player2Name, int player2Score);
+    return 0;
+}
 
-int winningPlayer(int player1Score, int player2Score);
+int rollDie(){
 
-void displayWinner(char* player1Name, int player1Score, char* player2Name, int player2Score);
+
+    return 0;
+}
+
+int takeTurn(char* playerName, int playerScore){
+
+
+    return 0;
+}
+
+void displayGameState(char* player1Name, int player1Score, char* player2Name, int player2Score){
+
+
+
+
+    return 0;
+}
+
+int winningPlayer(int player1Score, int player2Score){
+
+
+
+    return 0;
+}
+
+void displayWinner(char* player1Name, int player1Score, char* player2Name, int player2Score){
+
+
+    return 0;
+}

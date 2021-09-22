@@ -1,10 +1,10 @@
 /** pex02funcs.h
  * =========================================================== 
  * Name: C2C Lisa McCormick
- * Section: your section
- * Project: assignment information 
- * Purpose: high level description of purpose of the program
- *          could be multiple lines
+ * Section: T6/7
+ * Project: PEX 02
+ * Purpose: Write an application that implements the two-player dice game.
+ * 
  * =========================================================== */
 
 char getCharSafe();
