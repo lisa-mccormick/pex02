@@ -47,7 +47,7 @@ int takeTurn(char* playerName, int playerScore){
             if (diceRoll == 1){
              printf("You pigged out! Turn over.\n");
              pointsEarned = 0;
-             return totalScore;
+             return pointsEarned;
                 }
             else {
              pointsEarned = pointsEarned + diceRoll;   
@@ -68,6 +68,7 @@ printf("        %d %s\n", player2Score, player2Name);
 }
 
 int winningPlayer(int player1Score, int player2Score){
+
 
     if (player1Score >= POINTS_TO_WIN && player1Score > player2Score){
         return 1;

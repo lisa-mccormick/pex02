@@ -20,6 +20,7 @@ int main(){
   int player1Score = 0;
   int player2Score = 0;
   int currentPlayer = 1;
+  int chanceToPlay = 0;
   srand(time(0));
  
 
@@ -48,10 +49,13 @@ int main(){
       printf("It's your turn, %s\n", player2Name);
     player2Score = takeTurn(player2Name, player2Score);
     currentPlayer = 1;
+    chanceToPlay = chanceToPlay + 1;
     }
   }
 displayGameState(player1Name,player1Score, player2Name, player2Score);
+if (chanceToPlay != 0){
 winningPlayer(player1Score, player2Score);
+}
 displayWinner(player1Name, player1Score, player2Name, player2Score);
 
 printf("Thanks for playing Pig!\n");
