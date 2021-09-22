@@ -1,10 +1,10 @@
 /** pex02funcs.h
- * =========================================================== 
+ * ===========================================================
  * Name: C2C Lisa McCormick
  * Section: T6/7
  * Project: PEX 02
  * Purpose: Write an application that implements the two-player dice game.
- * 
+ *
  * =========================================================== */
 
 #define POINTS_TO_WIN 10
