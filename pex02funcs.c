@@ -13,8 +13,6 @@
     #include "pex02funcs.h"
 
 
-
-
 char getCharSafe(){
 	char valued;
 	char scanfReturnd = 0;
@@ -42,37 +40,32 @@ int takeTurn(char* playerName, int playerScore){
     int pointsEarned = 0;
     int diceRoll = rollDie();
     int turnScore = diceRoll + pointsEarned;
+    int totalScore = turnScore + pointsEarned;
+    char c = getCharSafe();
     // DO WHILE LOOP
         // Roll Die
         do {
          pointsEarned = pointsEarned + diceRoll;   
-        } while (pointsEarned <= POINTS_TO_WIN);
+        } while (c == 'Y' || c == 'y');
         
         // Adjust points (or pig out)
         if (diceRoll == 1){
-            printf("You pigged out! Turn over.");
+            printf("You pigged out! Turn over.\n");
         }
         else{
-            playerScore = turnScore + playerScore;
-        printf("You rolled a %d and have a turn score of %d, bringing your total score to %d.\n", diceRoll, turnScore, playerScore);
+            totalScore = turnScore + pointsEarned;
+        printf("You rolled a %d and have a turn score of %d, bringing your total score to %d.\n", diceRoll, turnScore, totalScore);
         }
         
         // Ask them if they want to roll again
         printf("Roll Again? ");
-        // use getCharSafe
-        char c = getCharSafe();
-        if (c == 'Y'){
-            return playerScore + pointsEarned;
-        }
-        if (c == 'y'){
-            return playerScore + pointsEarned;
-        }
-        else {
-            return playerScore;
-        }
-        return playerScore;
+        if (c != 'Y' || c != 'y'){
+            return totalScore + totalScore;
+        } 
+        else{
+        return totalScore;
+  }
 }
-
 
 void displayGameState(char* player1Name, int player1Score, char* player2Name, int player2Score){
 
