@@ -7,7 +7,7 @@
  * 
  * =========================================================== */
 
-#define POINTS_TO_WIN 100
+#define POINTS_TO_WIN 10
 
 char getCharSafe();
 

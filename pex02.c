@@ -32,19 +32,22 @@ int main(){
 
   // For each turn
   // LOOP
-  while (player1Score < POINTS_TO_WIN || player2Score < POINTS_TO_WIN){
+  while (player1Score <= POINTS_TO_WIN && player2Score <= POINTS_TO_WIN){
     displayGameState(player1Name, player1Score, player2Name, player2Score);
   // IF PLAYER 1'S TURN
     if (currentPlayer == 1){
+      printf("It's your turn, %s\n", player1Name);
     player1Score = takeTurn(player1Name, player1Score);
     currentPlayer = 2;
     }
   // ELSE
   // Player 2's turn
     else{
+      printf("It's your turn, %s\n", player2Name);
     player2Score = takeTurn(player2Name, player2Score);
     currentPlayer = 1;
     }
+    printf("%d, %d ", player1Score, player2Score);
   }
 
 winningPlayer(player1Score, player2Score);

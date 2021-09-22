@@ -35,37 +35,30 @@ int rollDie(){
 
 int takeTurn(char* playerName, int playerScore){
     
-    printf("It's your turn, %s\n", playerName);
-
+    char c;
     int pointsEarned = 0;
-    int diceRoll = rollDie();
-    int turnScore = diceRoll + pointsEarned;
-    int totalScore = turnScore + pointsEarned;
-    char c = getCharSafe();
+    int diceRoll;
+    int totalScore = playerScore;
+    
     // DO WHILE LOOP
         // Roll Die
-        do {
-         pointsEarned = pointsEarned + diceRoll;   
-        } while (c == 'Y' || c == 'y');
-        
-        // Adjust points (or pig out)
-        if (diceRoll == 1){
-            printf("You pigged out! Turn over.\n");
-        }
-        else{
-            totalScore = turnScore + pointsEarned;
-        printf("You rolled a %d and have a turn score of %d, bringing your total score to %d.\n", diceRoll, turnScore, totalScore);
-        }
-        
-        // Ask them if they want to roll again
-        printf("Roll Again? ");
-        if (c != 'Y' || c != 'y'){
-            return totalScore + totalScore;
-        } 
-        else{
+            do {  
+            diceRoll = rollDie();
+            if (diceRoll == 1){
+             printf("You pigged out! Turn over.\n");
+             pointsEarned = 0;
+             return totalScore;
+                }
+            else {
+             pointsEarned = pointsEarned + diceRoll;   
+             totalScore = pointsEarned + playerScore;
+             printf("You rolled a %d and have a turn score of %d, bringing your total score to %d.\n", diceRoll, pointsEarned, totalScore);
+             printf("Roll Again? ");
+            c = getCharSafe();
+            }
+            } while (c == 'Y' || c == 'y');
         return totalScore;
-  }
-}
+        }
 
 void displayGameState(char* player1Name, int player1Score, char* player2Name, int player2Score){
 
