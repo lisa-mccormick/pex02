@@ -65,15 +65,14 @@ void displayGameState(char* player1Name, int player1Score, char* player2Name, in
 printf("    Score Player\n");
 printf("        %d %s\n", player1Score, player1Name);
 printf("        %d %s\n", player2Score, player2Name);
-printf("\n");
 }
 
 int winningPlayer(int player1Score, int player2Score){
 
-    if (player1Score >= POINTS_TO_WIN){
+    if (player1Score >= POINTS_TO_WIN && player1Score > player2Score){
         return 1;
     }
-    else if (player2Score >= POINTS_TO_WIN){
+    else if (player2Score >= POINTS_TO_WIN && player2Score > player1Score){
         return 2;
     }
     else if (player1Score == player2Score){

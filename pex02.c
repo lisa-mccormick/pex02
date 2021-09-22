@@ -36,6 +36,7 @@ int main(){
     displayGameState(player1Name, player1Score, player2Name, player2Score);
   // IF PLAYER 1'S TURN
     if (currentPlayer == 1){
+      printf("\n");
       printf("It's your turn, %s\n", player1Name);
     player1Score = takeTurn(player1Name, player1Score);
     currentPlayer = 2;
@@ -43,13 +44,13 @@ int main(){
   // ELSE
   // Player 2's turn
     else{
+      printf("\n");
       printf("It's your turn, %s\n", player2Name);
     player2Score = takeTurn(player2Name, player2Score);
     currentPlayer = 1;
     }
-    printf("%d, %d ", player1Score, player2Score);
   }
-
+displayGameState(player1Name,player1Score, player2Name, player2Score);
 winningPlayer(player1Score, player2Score);
 displayWinner(player1Name, player1Score, player2Name, player2Score);
 
