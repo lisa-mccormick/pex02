@@ -19,6 +19,8 @@ int main(){
   char player2Name[20];
   int player1Score = 0;
   int player2Score = 0;
+  //char playerName[20];
+  //int playerScore = 0;
 
   printf("    Welcome to the Pigs! game.\n");
     printf("\n");
@@ -29,14 +31,16 @@ int main(){
 
   displayGameState(player1Name, player1Score, player2Name, player2Score);
 
+  //takeTurn(playerName, playerScore);
+rollDie();
 
 
 
+  
 
+displayWinner(player1Name, player1Score, player2Name, player2Score);
 
-
-
-  printf("thanks for playing Pig!\n");
+printf("Thanks for playing Pig!\n");
 
 return 0;
 }
