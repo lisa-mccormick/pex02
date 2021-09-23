@@ -3,7 +3,7 @@
  * Name: C2C Lisa McCormick
  * Section: T6/7
  * Project: PEX 02 - Pig!
- * Purpose: Write an application that implements the two-player dice game.
+ * Purpose: Write an application that implements the two-player dice game, Pig.
  *
  * =========================================================== */
 
@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
+// checks to see if a user-entered character is valid
 char getCharSafe() {
     char valued;
     char scanfReturnd = 0;
@@ -26,21 +26,23 @@ char getCharSafe() {
     }
     return valued;
 }
-
+// uses the random function to simulate a random dice roll on a 6 sided dice
 int rollDie() {
     int value = rand() % 6 + 1;
     return value;
 }
-
+// begins loop for each player turn
 int takeTurn(char* playerName, int playerScore) {
     char c;
     int pointsEarned = 0;
     int diceRoll;
     int totalScore = playerScore;
-
-    
+    // displays message to let players know who's turn it is
     printf("\n");
     printf("It's your turn, %s\n", playerName);
+    // a loop for turn play, if the dice "lands" on 1, the players turn is over,
+    // if not, the players score updates by adding the points earned in the current turn to their
+    // total. the loop will continue to run unless the the player decides to end their turn
     do {
         diceRoll = rollDie();
         if (diceRoll == 1) {
@@ -57,15 +59,17 @@ int takeTurn(char* playerName, int playerScore) {
             c = getCharSafe();
         }
     } while (c == 'Y' || c == 'y');
+    // returns the updated total score of the player after their turn is over
     return totalScore;
 }
-
+// displays the current score for each player in a scoreboard type format
 void displayGameState(char* player1Name, int player1Score, char* player2Name, int player2Score) {
     printf("    Score Player\n");
     printf("        %d %s\n", player1Score, player1Name);
     printf("        %d %s\n", player2Score, player2Name);
 }
-
+// checks to see which player won, if any, based on their total scores and
+// the number of points needed to win
 int winningPlayer(int player1Score, int player2Score) {
     if (player1Score >= POINTS_TO_WIN && player1Score > player2Score) {
         return 1;
@@ -77,9 +81,11 @@ int winningPlayer(int player1Score, int player2Score) {
         return 0;
     }
 }
-
+// displays a winning (or tie) message based on what the winningPlayer function returns
+// for which player won the game or if the players tied
 void displayWinner(char* player1Name, int player1Score, char* player2Name, int player2Score) {
     int playerwin = winningPlayer(player1Score, player2Score);
+    // if statement to check which message to display
     if (playerwin == 1) {
         printf("%s, you won!\n", player1Name);
     } else if (playerwin == 2) {
